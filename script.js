@@ -125,15 +125,16 @@ GenerateEl.addEventListener("click",function() {
                 for (i=0;i<value;i++) {
                     let options = [loweralpha,upperalpha,numbers];
                     let great = options[Math.floor(Math.random() * Math.floor(3))];
-                    if (options == loweralpha) {
+                    if (great == loweralpha) {
                         answer += loweralpha[Math.floor(Math.random() * Math.floor(26))];
-                    } else if (options == upperalpha) {
+                    } else if (great == upperalpha) {
                         answer += upperalpha[Math.floor(Math.random() * Math.floor(26))];
                     } else {
                         answer += numbers[Math.floor(Math.random() * Math.floor(9))];
                     }
                 }      
                     PasswordEl.textContent = answer;
+                    console.log(answer);
             }
     }
 }
