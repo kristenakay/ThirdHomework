@@ -48,28 +48,49 @@ GenerateEl.addEventListener("click",function() {
                 } else {
                     // Uppercase and Special on
                     for (i=0;i<value;i++) {
-                    let options = [specialchr,upperalpha];
-                    answer += options[Math.floor(Math.random() * Math.floor(2))][Math.floor(Math.random() * Math.floor(9))];
-                    }       
+                        let options = [specialchr,upperalpha];
+                        let great = options[Math.floor(Math.random() * Math.floor(2))];
+                        if (great == specialchr) {
+                            answer += specialchr[Math.floor(Math.random() * Math.floor(32))];
+                        } else {
+                            answer += upperalpha[Math.floor(Math.random() * Math.floor(26))];
+                        }
+                        
+                    }
                     PasswordEl.textContent = answer;
                 }
-            }else if (UppercaseCharacters.checked) {
+                }else if (UppercaseCharacters.checked) {
                     //Upper and Special and Lower
                     for (i=0;i<value;i++) {
                         let options = [specialchr,upperalpha,loweralpha];
-                        answer += options[Math.floor(Math.random() * Math.floor(3))][Math.floor(Math.random() * Math.floor(9))];
-                        }       
-                        PasswordEl.textContent = answer;
-            }
+                        let great = options[Math.floor(Math.random() * Math.floor(3))];
+                        if (great == specialchr) {
+                            answer += specialchr[Math.floor(Math.random() * Math.floor(32))];
+                        } else if (great == upperalpha) {
+                            answer += upperalpha[Math.floor(Math.random() * Math.floor(26))];
+                        } else {
+                            answer += loweralpha[Math.floor(Math.random() * Math.floor(26))];
+                        }
+                        
+                    }
+                    PasswordEl.textContent = answer;
+                }
         } else if (UppercaseCharacters.checked == false) {
             if (LowercaseCharacters.checked == false) {
                 // Number and special
                 for (i=0;i<value;i++) {
                     let options = [specialchr,numbers];
-                    answer += options[Math.floor(Math.random() * Math.floor(2))][Math.floor(Math.random() * Math.floor(9))];
-                    }       
-                    PasswordEl.textContent = answer;
+                    let great = options[Math.floor(Math.random() * Math.floor(2))];
+                    if (great == specialchr) {
+                        answer += specialchr[Math.floor(Math.random() * Math.floor(32))];
+                    } else {
+                        answer += numbers[Math.floor(Math.random() * Math.floor(9))];
+                    }
+                    
+                }
+                PasswordEl.textContent = answer;
             }
+
         }
     }
     
@@ -86,19 +107,32 @@ GenerateEl.addEventListener("click",function() {
                     }
                     PasswordEl.textContent = answer;
                 } else {
-                // Numbers and Lower on
-                for (i=0;i<value;i++) {
-                let options = [numbers,loweralpha];
-                answer += options[Math.floor(Math.random() * Math.floor(2))][Math.floor(Math.random() * Math.floor(9))];
-                }
-                PasswordEl.textContent = answer;
+                    // Numbers and Lower on
+                    for (i=0;i<value;i++) {
+                        let options = [numbers,loweralpha];
+                        let great = options[Math.floor(Math.random() * Math.floor(2))];
+                        if (great == numbers) {
+                            answer += numbers[Math.floor(Math.random() * Math.floor(9))];
+                        } else {
+                            answer += loweralpha[Math.floor(Math.random() * Math.floor(26))];
+                        }
+                        
+                    }
+                    PasswordEl.textContent = answer;
                 }
             } else if (LowercaseCharacters.checked) {
                 // lower and upper and numbers
                 for (i=0;i<value;i++) {
                     let options = [loweralpha,upperalpha,numbers];
-                    answer += options[Math.floor(Math.random() * Math.floor(3))][Math.floor(Math.random() * Math.floor(9))];
-                    }       
+                    let great = options[Math.floor(Math.random() * Math.floor(3))];
+                    if (options == loweralpha) {
+                        answer += loweralpha[Math.floor(Math.random() * Math.floor(26))];
+                    } else if (options == upperalpha) {
+                        answer += upperalpha[Math.floor(Math.random() * Math.floor(26))];
+                    } else {
+                        answer += numbers[Math.floor(Math.random() * Math.floor(9))];
+                    }
+                }      
                     PasswordEl.textContent = answer;
             }
     }
@@ -119,18 +153,30 @@ GenerateEl.addEventListener("click",function() {
                     }
                     PasswordEl.textContent = answer;
                 } else {
-                    // lower and special on
+                    // Lower and Special on
                     for (i=0;i<value;i++) {
                         let options = [specialchr,loweralpha];
-                        answer += options[Math.floor(Math.random() * Math.floor(2))][Math.floor(Math.random() * Math.floor(9))];
-                        }       
+                        let great = options[Math.floor(Math.random() * Math.floor(2))];
+                        if (great == specialchr) {
+                            answer += specialchr[Math.floor(Math.random() * Math.floor(32))];
+                        } else {
+                            answer += loweralpha[Math.floor(Math.random() * Math.floor(26))];
+                        }
                         PasswordEl.textContent = answer;
+                    }
                 }
             } else if (SpecialCharacters.checked) {
                 // lower and special and numbers
                 for (i=0;i<value;i++) {
                     let options = [specialchr,loweralpha,numbers];
-                    answer += options[Math.floor(Math.random() * Math.floor(3))][Math.floor(Math.random() * Math.floor(9))];
+                    let great = options[Math.floor(Math.random() * Math.floor(3))];
+                    if (great == loweralpha) {
+                    answer += loweralpha[Math.floor(Math.random() * Math.floor(26))];
+                    } else if (great == specialchr) {
+                        answer += specialchr[Math.floor(Math.random() * Math.floor(32))];
+                    } else {
+                        answer += numbers[Math.floor(Math.random() * Math.floor(9))];
+                    }
                     }       
                     PasswordEl.textContent = answer;
             } 
@@ -150,18 +196,33 @@ GenerateEl.addEventListener("click",function() {
                     answer += upperalpha[Math.floor(Math.random() * Math.floor(26))];
                 }
                 PasswordEl.textContent = answer;
-            } else
-            // Upper and Numbers
-            for (i=0;i<value;i++) {
-                let options = [numbers,upperalpha];
-                answer += options[Math.floor(Math.random() * Math.floor(2))][Math.floor(Math.random() * Math.floor(9))];
+            } else {
+                // Uppercase and numbers on
+                for (i=0;i<value;i++) {
+                    let options = [numbers,upperalpha];
+                    let great = options[Math.floor(Math.random() * Math.floor(2))];
+                    if (great == numbers) {
+                        answer += numbers[Math.floor(Math.random() * Math.floor(9))];
+                    } else {
+                        answer += upperalpha[Math.floor(Math.random() * Math.floor(26))];
+                    }
+                    PasswordEl.textContent = answer;
+                }
             }
             PasswordEl.textContent = answer;
             } else if (NumericalCharacters.checked) {
                 // numbers, and special and upper
                 for (i=0;i<value;i++) {
                     let options = [specialchr,upperalpha,numbers];
-                    answer += options[Math.floor(Math.random() * Math.floor(3))][Math.floor(Math.random() * Math.floor(9))];
+                    let great = options[Math.floor(Math.random() * Math.floor(3))];
+                    if (great == specialchr) {
+                        answer += specialchr[Math.floor(Math.random() * Math.floor(32))];
+                    } else if (great == numbers) {
+                        answer += numbers[Math.floor(Math.random() * Math.floor(9))];
+                    } else {
+                        answer += upperalpha[Math.floor(Math.random() * Math.floor(26))];
+                    }
+                    
                     }       
                     PasswordEl.textContent = answer;
             }
@@ -170,17 +231,31 @@ GenerateEl.addEventListener("click",function() {
                 if (NumericalCharacters.checked == false) {
                     // Lower and Upper on
                     for (i=0;i<value;i++) {
-                        let options = [lowerchr,upperalpha];
-                        answer += options[Math.floor(Math.random() * Math.floor(2))][Math.floor(Math.random() * Math.floor(9))];
-                        }       
+                        let options = [loweralpha,upperalpha];
+                        let great = options[Math.floor(Math.random() * Math.floor(2))];
+                        if (great == loweralpha) {
+                            answer += loweralpha[Math.floor(Math.random() * Math.floor(26))];
+                        } else {
+                            answer += upperalpha[Math.floor(Math.random() * Math.floor(26))];
+                        }
                         PasswordEl.textContent = answer;
+                    }
                 }
             } else {
                 if (NumericalCharacters.checked) {
                     // Number, Upper, Special, and Lower on
                     for (i=0;i<value;i++) {
                         let options = [specialchr,upperalpha,loweralpha,numbers];
-                        answer += options[Math.floor(Math.random() * Math.floor(4))][Math.floor(Math.random() * Math.floor(9))];
+                        let great = options[Math.floor(Math.random() * Math.floor(4))];
+                        if (great == specialchr) {
+                        answer += specialchr[Math.floor(Math.random() * Math.floor(32))];
+                        } else if (great == upperalpha) {
+                            answer += upperalpha[Math.floor(Math.random() * Math.floor(26))];
+                        } else if (great == loweralpha) {
+                            answer += loweralpha[Math.floor(Math.random() * Math.floor(26))];
+                        } else {
+                            answer += numbers[Math.floor(Math.random() * Math.floor(9))];
+                        }
                         }       
                         PasswordEl.textContent = answer;
                 }
@@ -202,14 +277,6 @@ GenerateEl.addEventListener("click",function() {
 });
 
 function myFunction() {
-    
-    
     PasswordEl.select();
-    
-  
-    
     document.execCommand("copy");
-  
-    
-    alert("Copied the text: " + copyText.value);
-  }
+}
